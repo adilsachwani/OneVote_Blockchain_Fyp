@@ -2,18 +2,15 @@ pragma solidity ^0.5.4;
 
 contract Voter{
     
-    address voter;
+    address payable voter;
     
-    constructor() public payable{
+    constructor() public{
         voter = msg.sender;
     }
     
     modifier voteronly(){
         if(msg.sender == voter){
             _;
-        }
-        else{
-            revert();
         }
     }
     
